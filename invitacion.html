@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Graduación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .bubble {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    animation: bubbleAnimation 6s ease-in-out infinite;
+    opacity: 1;
+    background-size: cover; /* Asegura que la imagen cubra toda la burbuja */
+    background-position: center; /* Centra la imagen dentro de la burbuja */
+    }
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;  /* Asegura que las partículas estén detrás de otros elementos */
+    }
+
+    body {
+      background: #f4f4f4;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      color: black;
+      position: relative;
+    }
+
+    .invitation-wrapper {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      border: 3px solid #2c3e50;
+      overflow: hidden;
+    }
+
+    .invitation-header h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 3.5em;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-out;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .invitation-header p {
+      font-size: 1.2em;
+      color: #34495e;
+      margin-bottom: 30px;
+      animation: fadeIn 2s ease-out;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .countdown {
+      font-size: 2em;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      animation: fadeIn 2s ease-out;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-button {
+      background: #3498db;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      color: white;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .cta-button:hover {
+      background-color: #2980b9;
+      transform: scale(1.1);
+    }
+
+    footer {
+      font-size: 1em;
+      color: #616161;
+      margin-top: 40px;
+    }
+
+    .invitation-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border: 5px solid #2c3e50;
+    }
+
+    .location, .schedule {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      color: #34495e;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+
+    .location p, .schedule p {
+      margin: 10px 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bubbleAnimation {
+      0% {
+        transform: translateY(-100px) scale(1);
+      }
+      100% {
+        transform: translateY(100vh) scale(1.2);
+      }
+    }
+
+    .bubble {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      animation: bubbleAnimation 6s ease-in-out infinite;
+      opacity: 1;
+    }
+
+    .bubble {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 1);
+      animation: bubbleAnimation 6s ease-in-out infinite;
+      opacity: 1;
+    }
+
+    .bubble:nth-child(1) {
+      width: 200px;
+      height: 200px;
+      background-image: url('image1.png');
+      top: 10%;
+      left: 15%;
+      animation-duration: 6s;
+    }
+
+    .bubble:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      background-image: url('image2.png');
+      top: 20%;
+      left: 60%;
+      animation-duration: 8s;
+    }
+
+    .bubble:nth-child(3) {
+      width: 200px;
+      height: 200px;
+      background-image: url('image3.png');
+      top: 30%;
+      left: 50%;
+      animation-duration: 5s;
+    }
+
+    .bubble:nth-child(4) {
+      width: 200px;
+      height: 200px;
+      background-image: url('image4.png');
+      top: 5%;
+      left: 10%;
+      animation-duration: 5s;
+    }
+
+    .bubble:nth-child(5) {
+      width: 200px;
+      height: 200px;
+      background-image: url('image5.png');
+      top: 10%;
+      right: 10%;
+      animation-duration: 5s;
+    }
+
+    .bubble:nth-child(6) {
+      width: 200px;
+      height: 200px;
+      background-image: url('image6.png');
+      top: 15%;
+      right: 20%;
+      animation-duration: 5s;
+    }
+
+    .grid-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 1);
+      background-image: linear-gradient(0deg, #000 1px, transparent 0px), linear-gradient(90deg, #000 1px, transparent 0px);
+      background-size: 200px 200px;
+      z-index: -2;
+    }
+
+    /* Ajuste para pantallas pequeñas */
+    @media (max-width: 768px) {
+      .invitation-wrapper {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .invitation-header h1 {
+        font-size: 2.5em;
+      }
+
+      .countdown {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-background"></div>
+  <div id="particles-js"></div>
+
+  <div class="invitation-wrapper">
+    <div class="invitation-header">
+      <h1>Graduación 2024 <i class="fas fa-graduation-cap"></i></h1>
+      <p>¡Estás invitado/a a nuestra ceremonia de graduación!</p>
+    </div>
+
+    <!-- Nombre del invitado -->
+    <div>
+      <label for="invited-name" style="color: #2c3e50; font-size: 1.2em;">Jose Luis Mercado</label>
+    </div>
+    <!-- Imagen de la invitación -->
+    <div class="invitation-image">
+      <img src="https://album.mediaset.es/eimg/2020/05/05/oyC1BkljrC98J9K2REAoW6.jpg?w=1200" alt="Imagen de Graduación">
+    </div>
+    <!-- Cuenta regresiva -->
+    <div class="countdown">
+      <span id="countdown"></span>
+    </div>
+
+    <!-- Ubicación y horario -->
+    <div class="location">
+      <p><strong>Ubicación:</strong> Auditorio Principal</p>
+      <p><strong>Dirección:</strong> Calle Ficticia 123, Ciudad</p>
+    </div>
+
+    <div class="schedule">
+      <p><strong>Fecha:</strong> 15 de diciembre de 2024</p>
+      <p><strong>Hora:</strong> 6:00 PM</p>
+    </div>
+
+    <!-- Botón de Confirmación -->
+    <button class="cta-button" onclick="location.href='confirmacion.html'">Confirmar Asistencia</button>
+
+    <footer>
+      <p>&copy; 2024 - Todos los derechos reservados</p>
+    </footer>
+    
+  </div>
+<!-- Burbuja de imagen dinámica -->
+<div class="bubbles">
+  <div class="bubble" style="background-image: url('https://prensa.pucmm.edu.do/wp-content/uploads/2023/09/JP1_3051-1536x1022.webp');"></div>
+  <div class="bubble" style="background-image: url('https://prensa.pucmm.edu.do/wp-content/uploads/2023/09/JP1_3742-1536x1022.webp');"></div>
+  <div class="bubble" style="background-image: url('https://prensa.pucmm.edu.do/wp-content/uploads/2023/09/JP1_3981-2-2048x1363.webp');"></div>
+  <div class="bubble" style="background-image: url('https://album.mediaset.es/eimg/2020/05/05/oyC1BkljrC98J9K2REAoW6.jpg?w=1200');"></div>
+  <div class="bubble" style="background-image: url('https://album.mediaset.es/eimg/2020/05/05/oyC1BkljrC98J9K2REAoW6.jpg?w=1200');"></div>
+  <div class="bubble" style="background-image: url('https://media.istockphoto.com/id/1066324992/es/foto/d%C3%ADa-de-graduaci%C3%B3n.jpg?s=1024x1024&w=is&k=20&c=mD-oGDFjil7WHbyuSKqOSg_uGeM_5Y97KxanDXHGuwo=');"></div>
+</div>
+
+
+  <!-- Audio de fondo -->
+  <audio autoplay loop >
+    <source src="musica.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <script>
+    // Configuración para partículas
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        shape: {
+          type: "circle",
+        },
+        opacity: {
+          value: 0.5,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0,
+            sync: false
+          }
+        },
+        size: {
+          value: 5,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 3,
+            size_min: 0,
+            sync: false
+          }
+        },
+        move: {
+          enable: true,
+          speed: 3,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false
+          }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse"
+          },
+          onclick: {
+            enable: true,
+            mode: "push"
+          }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Función para el contador regresivo
+    function countdown() {
+      const targetDate = new Date("December 15, 2024 18:00:00").getTime();
+      const countdownElement = document.getElementById("countdown");
+
+      setInterval(function () {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (distance < 0) {
+          clearInterval(interval);
+          countdownElement.innerHTML = "¡La graduación ha comenzado!";
+        }
+      }, 1000);
+    }
+
+    countdown();
+  </script>
+
+</body>
+</html>
