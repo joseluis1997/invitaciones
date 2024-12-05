@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Invitación de Graduación</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="¡Estás invitado a nuestra graduación!">
+  <meta property="og:description" content="Acompáñanos en este gran día, será un evento especial que no te puedes perder.">
+  <meta property="og:image" content="https://tusitio.com/imagenes/invitacion.jpg">
+  <meta property="og:url" content="https://tusitio.com/invitacion">
+  <meta property="og:type" content="website">
+
+  <!-- Otros meta tags -->
+  <meta name="theme-color" content="#007bff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitación de Graduación - Libro</title>
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -202,7 +214,9 @@
       text-align: center;
       padding: 0 20px;
     }
-
+    .video-container {
+            display: none; /* Oculta el iframe */
+        }
     .page h1,
     .page p {
       overflow-wrap: break-word;
@@ -288,7 +302,7 @@
               de la promito 2024 del nivel inicial en familia comunitaria. tiene el honor de invitar
               a usted a ser parte del acto de promocion
             </p>
-            <img src="https://st.depositphotos.com/1076214/1348/i/950/depositphotos_13488387-stock-photo-group-of-happy-young-graduates.jpg" alt="Imagen de Graduación">
+            <img src="https://st.depositphotos.com/1934071/2724/i/950/depositphotos_27241609-stock-photo-back-of-chinese-graduates.jpg" alt="Imagen de Graduación">
             <p><i class="fas fa-calendar"></i> Fecha: 06 de diciembre</p>
             <p><i class="fas fa-map-marker-alt"></i> Lugar: En nuestro Establecimiento</p>
           </div>
@@ -309,6 +323,14 @@
           <p>Gracias por formar parte de este día inolvidable.</p>
           <p>Unidad Educativa 3 de Mayo, Caraparí, Bolivia.</p>
           <button class="cta-button" onclick="confirmAttendance()">Confirmar Asistencia</button>
+          <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/watch?v=FUvmFmEiOpE" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
+        </div>
         </div>
       </div>
     </div>
@@ -322,9 +344,16 @@
 
 <script>
   // Confirmación de asistencia
-  function confirmAttendance() {
-    alert("¡Gracias por confirmar tu asistencia!");
-  }
+
+    function confirmAttendance() {
+            const phoneNumber = "59167691341"; // Número de WhatsApp al que se enviará el mensaje
+            const message = "¡Confirmo%20mi%20asistencia%20a%20la%20graduación!"; // Mensaje predefinido
+            const url = `https://wa.me/${phoneNumber}?text=${message}`;
+            
+            // Abrir el enlace de WhatsApp en una nueva ventana
+            window.open(url, "_blank");
+        }
+  
 
   // Generar lluvia de tocas
   const rainContainer = document.querySelector('.rain');
