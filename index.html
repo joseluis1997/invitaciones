@@ -288,7 +288,7 @@
   </style>
 </head>
 <body>
-  <audio id="backgroundAudio" loop >
+  <audio id="backgroundAudio" preload="auto" >
             <source src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/musica/musica3.mp3" type="audio/mpeg">
 
             Tu navegador no soporta el audio.
@@ -342,24 +342,27 @@
     });
   </script>
 <script>
-        // Función para reproducir el audio
+        // Obtener el audio
+        const audio = document.getElementById("backgroundAudio");
+
+        // Preconfiguración del audio
+        audio.playbackRate = 1.0; // Velocidad normal (ajusta si necesitas que sea más rápida)
+        audio.muted = false;
+
+        // Función para reproducir audio
         function playAudio() {
-            const audio = document.getElementById("backgroundAudio");
-            
-            // Comprobar si el audio está pausado
+            // Reproducir audio de inmediato si está pausado
             if (audio.paused) {
-                audio.muted = false; // Desmutear
                 audio.play()
                     .then(() => console.log("Audio reproduciéndose"))
                     .catch(err => console.error("Error al reproducir audio:", err));
             }
         }
 
-        // Agregar eventos para clic y toque
-        document.body.addEventListener("click", playAudio, { once: true });  // Reproduce en computadoras
-        document.body.addEventListener("touchstart", playAudio, { once: true }); // Reproduce en dispositivos táctiles
+        // Agregar eventos para clic y toque en cualquier parte de la pantalla
+        document.body.addEventListener("click", playAudio, { once: true });
+        document.body.addEventListener("touchstart", playAudio, { once: true });
     </script>
-<script>
   // Confirmación de asistencia
 
     function confirmAttendance() {
