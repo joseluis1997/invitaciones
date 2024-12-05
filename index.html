@@ -7,14 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* Reset */
+    /* TODO: Aquí comienza tu estilo original sin cambios */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-     /* Estilos para los divs */
-     .content {
+
+    .content {
       display: none; /* Todos los divs están ocultos por defecto */
       text-align: center;
       padding: 50px;
@@ -33,6 +34,7 @@
     .second {
       transition: opacity 1s;
     }
+
     body {
       display: flex;
       justify-content: center;
@@ -44,12 +46,14 @@
       margin: 0;
     }
 
-    /* Libro */
     .book {
-      width: 1000px;
-      height: 800px;
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      aspect-ratio: 5/4;
       position: relative;
       perspective: 1500px;
+      margin: auto;
     }
 
     .pages {
@@ -76,14 +80,16 @@
       border: 10px solid #ffffff;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1), inset 0 4px 10px rgba(255, 255, 255, 0.3);
     }
-      .page img {
-    max-width: 80%; /* Asegura que la imagen no exceda el contenedor */
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border: 5px solid #fff; /* Borde blanco para resaltar la imagen */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3); /* Sombra suave alrededor de la imagen */
-  }
+
+    .page img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
     .page h1 {
       font-family: 'Sacramento', cursive;
       font-size: 3em;
@@ -93,7 +99,7 @@
     }
 
     .page p {
-      font-family: 'Playfair Display', serif; /* Fuente elegante para el título */
+      font-family: 'Playfair Display', serif;
       font-size: 1.5em;
       color: #000000;
       text-align: center;
@@ -148,7 +154,6 @@
       transform: scale(1.1);
     }
 
-    /* Efecto de lluvia de tocas */
     .rain {
       position: fixed;
       top: 0;
@@ -163,7 +168,7 @@
       position: absolute;
       top: -50px;
       font-size: 1.5em;
-      color: #000000; /* Cambiado a negro */
+      color: #000000;
       opacity: 0.9;
       animation: fall 3s linear infinite;
     }
@@ -177,7 +182,6 @@
       }
     }
 
-    /* Título grande en la primera página */
     .title {
       font-size: 5em;
       color: #000000;
@@ -199,19 +203,17 @@
       padding: 0 20px;
     }
 
-    /* Ajustes para evitar que el contenido se desborde */
     .page h1,
     .page p {
       overflow-wrap: break-word;
       word-wrap: break-word;
     }
 
-    /* Mostrar la primera página por defecto */
     .pages {
       transform: rotateY(0deg);
     }
-    /* Animación de rotación de las páginas */
-   .page-1 {
+
+    .page-1 {
       animation: rotatePage 25s infinite;
     }
 
@@ -230,6 +232,45 @@
       }
     }
 
+    /* Responsividad */
+    @media screen and (max-width: 768px) {
+      .book {
+        max-width: 95%;
+        height: auto;
+      }
+
+      .page h1 {
+        font-size: 2em;
+      }
+
+      .page p {
+        font-size: 1.2em;
+      }
+
+      .cta-button {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .title {
+        font-size: 3em;
+      }
+
+      .page h1 {
+        font-size: 1.5em;
+      }
+
+      .page p {
+        font-size: 1em;
+      }
+
+      .cta-button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -247,7 +288,7 @@
               de la promito 2024 del nivel inicial en familia comunitaria. tiene el honor de invitar
               a usted a ser parte del acto de promocion
             </p>
-            <img src="img1.jpg" alt="Imagen de Graduación">
+            <img src="https://github.com/joseluis1997/invitaciones/blob/main/img2.jpg" alt="Imagen de Graduación">
             <p><i class="fas fa-calendar"></i> Fecha: 06 de diciembre</p>
             <p><i class="fas fa-map-marker-alt"></i> Lugar: En nuestro Establecimiento</p>
           </div>
@@ -272,40 +313,44 @@
       </div>
     </div>
   </div>
-
-  </div>
-
   <script>
-    // Confirmación de asistencia
-    function confirmAttendance() {
-      alert("¡Gracias por confirmar tu asistencia!");
-    }
-
-    // Generar lluvia de tocas
-    const rainContainer = document.querySelector('.rain');
-
-    for (let i = 0; i < 50; i++) {
-      const drop = document.createElement('i');
-      drop.classList.add('fas', 'fa-graduation-cap');
-      drop.style.left = `${Math.random() * 100}vw`;
-      drop.style.animationDuration = `${2 + Math.random() * 3}s`;
-      drop.style.fontSize = `${1 + Math.random() * 2}em`;
-      rainContainer.appendChild(drop);
-    }
-    // Función para cambiar de divs
-    function changeDiv() {
-      // Ocultar el primer div
-      document.getElementById('firstDiv').classList.remove('show');
-
-      // Mostrar el segundo div después de 3 segundos
-      setTimeout(function() {
-        document.getElementById('secondDiv').classList.add('show');
-      }); // 3000 milisegundos (3 segundos)
-    }
-
-    // Llamar a la función para cambiar de div después de 3 segundos
-    setTimeout(changeDiv, 5000); // Después de 3 segundos, cambiar de div
+    document.querySelector('.cta-button').addEventListener('click', function() {
+      document.querySelector('.first').classList.remove('show');
+      document.querySelector('.second').classList.add('show');
+    });
   </script>
+
+<script>
+  // Confirmación de asistencia
+  function confirmAttendance() {
+    alert("¡Gracias por confirmar tu asistencia!");
+  }
+
+  // Generar lluvia de tocas
+  const rainContainer = document.querySelector('.rain');
+
+  for (let i = 0; i < 50; i++) {
+    const drop = document.createElement('i');
+    drop.classList.add('fas', 'fa-graduation-cap');
+    drop.style.left = `${Math.random() * 100}vw`;
+    drop.style.animationDuration = `${2 + Math.random() * 3}s`;
+    drop.style.fontSize = `${1 + Math.random() * 2}em`;
+    rainContainer.appendChild(drop);
+  }
+  // Función para cambiar de divs
+  function changeDiv() {
+    // Ocultar el primer div
+    document.getElementById('firstDiv').classList.remove('show');
+
+    // Mostrar el segundo div después de 3 segundos
+    setTimeout(function() {
+      document.getElementById('secondDiv').classList.add('show');
+    }); // 3000 milisegundos (3 segundos)
+  }
+
+  // Llamar a la función para cambiar de div después de 3 segundos
+  setTimeout(changeDiv, 5000); // Después de 3 segundos, cambiar de div
+</script>
 
 </body>
 </html>
