@@ -302,7 +302,7 @@
               de la promito 2024 del nivel inicial en familia comunitaria. tiene el honor de invitar
               a usted a ser parte del acto de promocion
             </p>
-            <img src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/imagenes/img1.jpg" alt="Imagen de Graduación">
+            <img src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/imagenes/uno.jpeg" alt="Imagen de Graduación">
             <p><i class="fas fa-calendar"></i> Fecha: 06 de diciembre</p>
             <p><i class="fas fa-map-marker-alt"></i> Lugar: En nuestro Establecimiento</p>
           </div>
@@ -312,25 +312,28 @@
       <!-- Primera página -->
       <div class="page">
         <div class="page-content">
+          <img src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/imagenes/10.jpeg" alt="Imagen de Graduación">
+
           <h1>Egresados 2024</h1>
           <p>Recuerda este momento especial con todos nosotros.</p>
+
         </div>
       </div>
       <!-- Tercera página -->
       <div class="page" >
         <div class="page-content">
           <h1>Agradecimientos</h1>
+          <img src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/imagenes/tres.jpeg" alt="Imagen de Graduación">
+
           <p>Gracias por formar parte de este día inolvidable.</p>
           <p>Unidad Educativa 3 de Mayo, Caraparí, Bolivia.</p>
           <button class="cta-button" onclick="confirmAttendance()">Confirmar Asistencia</button>
-          <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/watch?v=FUvmFmEiOpE" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>
-        </div>
+         
+          <audio id="backgroundAudio" autoplay loop muted>
+            <source src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/musica/musica3.mp3" type="audio/mpeg">
+
+            Tu navegador no soporta el audio.
+          </audio>
         </div>
       </div>
     </div>
@@ -341,7 +344,14 @@
       document.querySelector('.second').classList.add('show');
     });
   </script>
-
+ <script>
+  // Activar el sonido tras un breve retardo
+  const audio = document.getElementById("backgroundAudio");
+  setTimeout(() => {
+    audio.muted = false; // Quita el mute después de un tiempo
+    audio.play().catch((e) => console.error("Error al reproducir audio:", e));
+  }, 1000);
+</script>
 <script>
   // Confirmación de asistencia
 
