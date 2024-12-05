@@ -298,9 +298,8 @@
         <!-- Primera página -->
         <div class="page " >
           <div class="page-content">
-            <p>La Direccion de la U.E. 3 de Mayo en coordinacion con las Maestras y padres de familia
-              de la promito 2024 del nivel inicial en familia comunitaria. tiene el honor de invitar
-              a usted a ser parte del acto de promocion
+            <p>La Direccion de la U.E. 3 Celso Rafaelli en coordinacion con las Maestras y padres de familia
+              de la promito 2024 tiene el honor de invitar a usted a ser parte del acto de promocion
             </p>
             <img src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/imagenes/uno.jpeg" alt="Imagen de Graduación">
             <p><i class="fas fa-calendar"></i> Fecha: 06 de diciembre</p>
@@ -329,8 +328,8 @@
           <p>Unidad Educativa 3 de Mayo, Caraparí, Bolivia.</p>
           <button class="cta-button" onclick="confirmAttendance()">Confirmar Asistencia</button>
          
-          <audio id="backgroundAudio" autoplay loop muted>
-            <source src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/musica/musica.mp3" type="audio/mpeg">
+          <audio id="backgroundAudio" loop >
+            <source src="https://raw.githubusercontent.com/joseluis1997/invitaciones/refs/heads/main/musica/musica3.mp3" type="audio/mpeg">
 
             Tu navegador no soporta el audio.
           </audio>
@@ -344,13 +343,19 @@
       document.querySelector('.second').classList.add('show');
     });
   </script>
- <script>
-  // Activar el sonido tras un breve retardo
-  const audio = document.getElementById("backgroundAudio");
-  setTimeout(() => {
-    audio.muted = false; // Quita el mute después de un tiempo
-    audio.play().catch((e) => console.error("Error al reproducir audio:", e));
-  }, 1000);
+   <script>
+    // Capturar el evento de interacción
+    document.body.addEventListener("click", function () {
+        const audio = document.getElementById("backgroundAudio");
+        
+        // Desmutear y reproducir el audio
+        if (audio.paused) {
+            audio.muted = false; // Quitar mute
+            audio.play()
+                .then(() => console.log("Audio reproduciéndose"))
+                .catch(err => console.error("Error al reproducir audio:", err));
+        }
+    }, { once: true }); // Solo se ejecuta una vez para evitar múltiples inicios
 </script>
 <script>
   // Confirmación de asistencia
@@ -388,7 +393,7 @@
   }
 
   // Llamar a la función para cambiar de div después de 3 segundos
-  setTimeout(changeDiv, 5000); // Después de 3 segundos, cambiar de div
+  setTimeout(changeDiv, 8000); // Después de 3 segundos, cambiar de div
 </script>
 
 </body>
